@@ -1,0 +1,25 @@
+/* CSS declarations go here */
+body,html {
+  height: 100%;
+}
+
+body {
+  padding-top: 50px;
+}
+
+.form-control-feedback {
+    position: absolute;
+    top: 0;
+    right: 15px;
+}
+
+h2 {
+	color: #10a6cc;
+	font-weight: bolder;
+}
+
+.btn-info {
+    color: #222;
+    background-color: #FFA040;
+    border-color: #FF8E1B;
+}

@@ -1,0 +1,171 @@
+<head>
+  <title>EdexLog</title>
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">EdexLog</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#new">New</a></li>
+        <li><a href="#new">Term Finder</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Username</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+  </div>
+  <!--<h1>Welcome to Meteor!</h1>-->
+
+  <div class="container" id="page">
+    <!--{{#if currentUser}}
+      <div>
+        {{> loginButtons}}
+      </div>-->
+
+      {{> eventDetails}}
+      {{> info}}
+
+    <!--{{else}}
+      <div>
+        {{> loginButtons}}
+      </div>
+    {{/if}}-->
+  </div>
+
+  <div id="render-target"></div>
+
+</body>
+
+<template name="eventDetails">
+  <!-- <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>-->
+  <form>
+    <h2>Event Details</h2>
+    <fieldset id="event-details" class="event-details">
+      <div class="event-details row">
+        <label class="col-sm-2 form-control-label">Resident</label>
+        <div class="col-sm-10">
+          <p class="form-control-static input-sm">{{lastName}}, {{firstName}}</p>
+        </div>
+      </div>
+      <div class="event-details row">
+        <label for="eventDetailsOMSMonths" class="col-sm-2 form-control-label">OMS Months</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control input-sm" id="eventDetailsOMSMonths" placeholder="OMS Months">
+        </div>
+      </div>
+      <div class="event-details row">
+        <label for="eventDetailsEventDate" class="col-sm-2 form-control-label">Event Date</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control input-sm" id="eventDetailsEventDate" placeholder="Event Date">
+        </div>
+      </div>
+      <div class="event-details row">
+        <label for="eventDetailsSite" class="col-sm-2 form-control-label">Site</label>
+        <div class="col-sm-10">
+          <select class="form-control input-sm" id="eventDetailsSite">
+            <option selected>Select Site</option>
+            <option>{{Site}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="event-details row">
+        <label for="eventDetailsSetting" class="col-sm-2 form-control-label">Setting</label>
+        <div class="col-sm-10">
+          <select class="form-control input-sm" id="eventDetailsSite">
+            <option selected>Select Setting</option>
+            <option>{{Setting}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="event-details row">
+        <label for="eventDetailsRole" class="col-sm-2 form-control-label">Role</label>
+        <div class="col-sm-10">
+          <select class="form-control input-sm" id="eventDetailsRole">
+            <option selected>Select Role</option>
+            <option>{{role}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="event-details row">
+        <label for="eventDetailsAttending" class="col-sm-2 form-control-label">Attending</label>
+        <div class="col-sm-10">
+          <select class="form-control input-sm" id="eventDetailsAttending">
+            <option selected>Select Attending Clinician</option>
+            <option>{{attendingLastName}}, {{attendingFirstName}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="event-details row">
+        <label for="eventDetailsOMSMonths" class="col-sm-2 form-control-label">Birth Year</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control input-sm" id="eventDetailsOMSMonths" placeholder="OMS Months">
+        </div>
+      </div>
+    </fieldset>
+<br>
+    <h2>Experiences</h2>
+    <h3>Clinical Findings</h3>
+    <fieldset id="clinical-findings" class="clinical-findings">
+      <div class="clinical-findings row">
+        <div class="col-sm-12">
+          <input type="text" class="form-control input-sm" id="clinicalFindingsEnterFinding" name="clinicalFindingsEnterFinding" placeholder="Enter a Finding">
+          <i class="form-control-feedback glyphicon glyphicon-search"></i>
+        </div>
+      </div>
+    </fieldset>
+<br>
+    <h3>Procedures and Actions</h3>
+    <fieldset id="procedures" class="procedures">
+      <div class="procedures row">
+        <div class="col-sm-12">
+          <input type="text" class="form-control input-sm" id="proceduresEnterProcedure" name="proceduresEnterProcedure" placeholder="Enter a Procedure/Action">
+          <i class="form-control-feedback glyphicon glyphicon-search"></i>
+        </div>
+      </div>
+    </fieldset>
+    <div id="app">
+      blah blah blah
+    </div>
+<br>
+    <h2>Notes</h2>
+    <fieldset id="notes" class="notes">
+      <div class="notes row">
+        <div class="col-sm-12">
+          <label for="notes">Do not enter PHI in notes</label>
+          <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+<br>
+
+<div>
+  <button type="button" class="btn btn-info">
+    Save &nbsp;<span class="glyphicon glyphicon-floppy-disk"></span>
+  </button>
+</div>
+
+</template>
+
+<template name="info">
+  <!--<h2>Learn Meteor!</h2>
+  <ul>
+    <li><a href="https://www.meteor.com/try">Do the Tutorial</a></li>
+    <li><a href="http://guide.meteor.com">Follow the Guide</a></li>
+    <li><a href="https://docs.meteor.com">Read the Docs</a></li>
+    <li><a href="https://forums.meteor.com">Discussions</a></li>
+  </ul>-->
+</template>
